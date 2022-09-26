@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { GildedRose, Item } from '../../gilded-rose/index';
+import { updateQuality, Item } from '../../gilded-rose/index';
 
 import './ItemsTable.css';
 import TableRow from '../TableRow/TableRow';
@@ -24,8 +24,7 @@ function ItemsTable() {
 
   const onClickUpdateQuality = () => {
     const newItems = items.map((item: Item) => ({ ...item }));
-    const gildedRose = new GildedRose(newItems);
-    const updatedItems: any = gildedRose.updateQuality();
+    const updatedItems: any = updateQuality(newItems);
     setItems(updatedItems);
   };
 
